@@ -4,6 +4,8 @@
 $OutputEncoding = [System.Text.Encoding]::UTF8
 [console]::InputEncoding = [System.Text.Encoding]::UTF8
 [console]::OutputEncoding = [System.Text.Encoding]::UTF8
+[Console]::CursorVisible = $false
+
 
 clear
 
@@ -39,6 +41,8 @@ write-host "
 
 function spin{
 
+  $Host.UI.RawUI.CursorPosition = @{ X = 0; Y = 28 }
+write-host $spinningSign
 
 $Host.UI.RawUI.CursorPosition = $slot1.cord1
 $RandomSpin = Get-Random  -Maximum 4
@@ -456,7 +460,8 @@ $Host.UI.RawUI.CursorPosition = $slot2.cord3
 
 
 $Host.UI.RawUI.CursorPosition = @{ X = 0; Y = 28 }
-read-host "Press enter to spin again!"
+read-host $spinAgainSign
+
 
 spin
 
@@ -530,6 +535,31 @@ cord3 = @{ X = 42; Y = 18 }
 
 $symbols = @($cherrySymbol, $owlSymbol, $barSymbol, $sevenSymbol)
 
+$spinSign = "
+               []~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_[]
+               |                                    |
+               |        Press enter to spin!        |
+               |                                    |
+               []_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~[]
+"
+
+$spinningSign = "
+               []~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_[]
+               |                                    |
+               |             Spinning...            |
+               |                                    |
+               []_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~[]
+"
+
+$spinAgainSign = "
+               []~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_[]
+               |                                    |
+               |     Press enter to spin again!     |
+               |                                    |
+               []_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~[]
+"
+
+Read-Host $spinSign
 spin
 
 
