@@ -9,22 +9,19 @@ $OutputEncoding = [System.Text.Encoding]::UTF8
 
 
 
-function profileCheck {
-$configPath = $PSScriptRoot + "\config.json"
-if(test-path $configPath){
-  write-host "Config for ps-casino already exists."
-}
-else{
-  write-host "Config file doesn't exist."
-}
-
-}
-
-Clear-Host
-
 
 
 function spin{
+
+$stats.lineBank.value -= 5
+$stats.lineSpins.value += 1
+
+$stats.PSOBject.Properties | ForEach-Object{
+$host.UI.RawUI.CursorPosition = @{ X = $_.Value.xcord; Y = $_.Value.ycord }
+Write-Host $_.Value.value
+}
+
+$stats | ConvertTo-Json -Depth 2 | Out-File $configFile
 
 $spinningSign.PSOBject.Properties | ForEach-Object{
 $host.UI.RawUI.CursorPosition = @{ X = $_.Value.xcord; Y = $_.Value.ycord }
@@ -235,6 +232,7 @@ $Host.UI.RawUI.CursorPosition = $slot1.cord2
   Write-Host $cherrySymbol.line2.text -ForegroundColor $cherrySymbol.line2.color
 $Host.UI.RawUI.CursorPosition = $slot1.cord3
   Write-Host $cherrySymbol.line3.text -ForegroundColor $cherrySymbol.line3.color
+  $spot1 = "Cherry"
 } 
 
 ###if owl
@@ -245,6 +243,7 @@ $Host.UI.RawUI.CursorPosition = $slot1.cord2
   Write-Host $owlSymbol.line2.text -ForegroundColor $owlSymbol.line2.color
 $Host.UI.RawUI.CursorPosition = $slot1.cord3
   Write-Host $owlSymbol.line3.text -ForegroundColor $owlSymbol.line3.color
+  $spot1 = "Owl"
 }
 
 
@@ -256,6 +255,7 @@ $Host.UI.RawUI.CursorPosition = $slot1.cord2
   Write-Host $barSymbol.line2.text -ForegroundColor $barSymbol.line2.color
 $Host.UI.RawUI.CursorPosition = $slot1.cord3
   Write-Host $barSymbol.line3.text -ForegroundColor $barSymbol.line3.color
+  $spot1 = "Bar"
 }
 
 
@@ -267,6 +267,7 @@ $Host.UI.RawUI.CursorPosition = $slot1.cord2
   Write-Host $sevenSymbol.line2.text -ForegroundColor $sevenSymbol.line2.color
 $Host.UI.RawUI.CursorPosition = $slot1.cord3
   Write-Host $sevenSymbol.line3.text -ForegroundColor $sevenSymbol.line3.color
+  $spot1 = "Seven"
 }
 
 $Host.UI.RawUI.CursorPosition = $slot2.cord1
@@ -412,6 +413,7 @@ $Host.UI.RawUI.CursorPosition = $slot2.cord2
   Write-Host $cherrySymbol.line2.text -ForegroundColor $cherrySymbol.line2.color
 $Host.UI.RawUI.CursorPosition = $slot2.cord3
   Write-Host $cherrySymbol.line3.text -ForegroundColor $cherrySymbol.line3.color
+  $spot2 = "Cherry"
 } 
 
 ###if owl
@@ -422,6 +424,7 @@ $Host.UI.RawUI.CursorPosition = $slot2.cord2
   Write-Host $owlSymbol.line2.text -ForegroundColor $owlSymbol.line2.color
 $Host.UI.RawUI.CursorPosition = $slot2.cord3
   Write-Host $owlSymbol.line3.text -ForegroundColor $owlSymbol.line3.color
+  $spot2 = "Owl"
 }
 
 
@@ -433,6 +436,7 @@ $Host.UI.RawUI.CursorPosition = $slot2.cord2
   Write-Host $barSymbol.line2.text -ForegroundColor $barSymbol.line2.color
 $Host.UI.RawUI.CursorPosition = $slot2.cord3
   Write-Host $barSymbol.line3.text -ForegroundColor $barSymbol.line3.color
+  $spot2 = "Bar"
 }
 
 
@@ -444,6 +448,7 @@ $Host.UI.RawUI.CursorPosition = $slot2.cord2
   Write-Host $sevenSymbol.line2.text -ForegroundColor $sevenSymbol.line2.color
 $Host.UI.RawUI.CursorPosition = $slot2.cord3
   Write-Host $sevenSymbol.line3.text -ForegroundColor $sevenSymbol.line3.color
+  $spot2 = "Seven"
 }
 
 $Host.UI.RawUI.CursorPosition = $slot3.cord1
@@ -523,48 +528,109 @@ start-sleep -milliseconds 115
 $result3 = Get-Random -Minimum 1 -Maximum 32
 ###if cherry
 if ($result3 -le 16) {
-  $spot1 = "Cherry"
   $Host.UI.RawUI.CursorPosition = $slot3.cord1
   Write-Host $cherrySymbol.line1.text -ForegroundColor $cherrySymbol.line1.color
 $Host.UI.RawUI.CursorPosition = $slot3.cord2
   Write-Host $cherrySymbol.line2.text -ForegroundColor $cherrySymbol.line2.color
 $Host.UI.RawUI.CursorPosition = $slot3.cord3
   Write-Host $cherrySymbol.line3.text -ForegroundColor $cherrySymbol.line3.color
+  $spot3 = "Cherry"
 } 
 
 ###if owl
 if ($result3 -gt 16 -and $result3 -le 28) {
-    $spot1 = "Owl"
   $Host.UI.RawUI.CursorPosition = $slot3.cord1
   Write-Host $owlSymbol.line1.text -ForegroundColor $owlSymbol.line1.color
 $Host.UI.RawUI.CursorPosition = $slot3.cord2
   Write-Host $owlSymbol.line2.text -ForegroundColor $owlSymbol.line2.color
 $Host.UI.RawUI.CursorPosition = $slot3.cord3
   Write-Host $owlSymbol.line3.text -ForegroundColor $owlSymbol.line3.color
+  $spot3 = "Owl"
 }
 
 
 ###if bar
 if ($result3 -gt 28 -and $result3 -le 31) {
-    $spot1 = "Bar"
   $Host.UI.RawUI.CursorPosition = $slot3.cord1
   Write-Host $barSymbol.line1.text -ForegroundColor $barSymbol.line1.color
 $Host.UI.RawUI.CursorPosition = $slot3.cord2
   Write-Host $barSymbol.line2.text -ForegroundColor $barSymbol.line2.color
 $Host.UI.RawUI.CursorPosition = $slot3.cord3
   Write-Host $barSymbol.line3.text -ForegroundColor $barSymbol.line3.color
+  $spot3 = "Bar"
 }
 
 
 ###if seven
 if ($result3 -eq 32) {
-    $spot1 = "Seven"
+  
   $Host.UI.RawUI.CursorPosition = $slot3.cord1
   Write-Host $sevenSymbol.line1.text -ForegroundColor $sevenSymbol.line1.color
 $Host.UI.RawUI.CursorPosition = $slot3.cord2
   Write-Host $sevenSymbol.line2.text -ForegroundColor $sevenSymbol.line2.color
 $Host.UI.RawUI.CursorPosition = $slot3.cord3
   Write-Host $sevenSymbol.line3.text -ForegroundColor $sevenSymbol.line3.color
+  $spot3 = "Seven"
+}
+
+if($spot1 -eq $spot2 -and $spot2 -eq $spot3 -and $spot1 -eq "Cherry") {
+  $stats = Get-Content $configFile | ConvertFrom-Json
+  $stats.lineBank.value += 25
+  $stats.totalWinnings.value += 25
+  $stats.lineWins.value += 1
+  $stats.cherryWins.value += 1
+
+  $stats | ConvertTo-Json -Depth 2 | Out-File $configFile
+
+  $spinningSign.PSOBject.Properties | ForEach-Object{
+    $host.UI.RawUI.CursorPosition = @{ X = $_.Value.xcord; Y = $_.Value.ycord}
+    Write-Host $_.Value.text
+    }
+}
+
+if($spot1 -eq $spot2 -and $spot2 -eq $spot3 -and $spot1 -eq "Owl") {
+  $stats = Get-Content $configFile | ConvertFrom-Json
+  $stats.lineBank.value += 125
+  $stats.totalWinnings.value += 125
+  $stats.lineWins.value += 1
+  $stats.owlWins.value += 1
+
+  $stats | ConvertTo-Json -Depth 2 | Out-File $configFile
+
+  $spinningSign.PSOBject.Properties | ForEach-Object{
+    $host.UI.RawUI.CursorPosition = @{ X = $_.Value.xcord; Y = $_.Value.ycord}
+    Write-Host $_.Value.text
+    }
+}
+
+if($spot1 -eq $spot2 -and $spot2 -eq $spot3 -and $spot1 -eq "bars") {
+  $stats = Get-Content $configFile | ConvertFrom-Json
+  $stats.lineBank.value += 10000
+  $stats.totalWinnings.value += 10000
+  $stats.lineWins.value += 1
+  $stats.barWins.value += 1
+
+  $stats | ConvertTo-Json -Depth 2 | Out-File $configFile
+
+  $spinningSign.PSOBject.Properties | ForEach-Object{
+    $host.UI.RawUI.CursorPosition = @{ X = $_.Value.xcord; Y = $_.Value.ycord}
+    Write-Host $_.Value.text
+    }
+}
+
+if($spot1 -eq $spot2 -and $spot2 -eq $spot3 -and $spot1 -eq "Seven") {
+  $stats = Get-Content $configFile | ConvertFrom-Json
+  $stats.lineBank.value += 1000000
+  $stats.totalWinnings.value += 1000000
+  $stats.lineWins.value += 1
+  $stats.sevenWins.value += 1
+
+  $stats | ConvertTo-Json -Depth 2 | Out-File $configFile
+
+  $spinningSign.PSOBject.Properties | ForEach-Object{
+    $host.UI.RawUI.CursorPosition = @{ X = $_.Value.xcord; Y = $_.Value.ycord}
+    Write-Host $_.Value.text
+    }
 }
 
 
@@ -690,18 +756,12 @@ line14 = @{text="|  Cherry Wins {12.5%}:                |"; xcord= 80; ycord=16}
 line15 = @{text="|  Owl Wins {5.3%}:                    |"; xcord= 80; ycord=17}
 line16 = @{text="|  Bar Wins {0.082%}:                  |"; xcord= 80; ycord=18}
 line17 = @{text="|  7 Wins {0.00305%}:                  |"; xcord= 80; ycord=19}
-line18 = @{text="|  Total Winnings in `$:                |"; xcord= 80; ycord=20}
+line18 = @{text="|  Total Winnings: $                   |"; xcord= 80; ycord=20}
 line19 = @{text="|                                      |"; xcord= 80; ycord=21}
 line20 = @{text="[]~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_[]"; xcord= 80; ycord=22}
 }
 
-$stats =[PSCustomObject]@{
-lineBank = @{text="500"; xcord= 90; ycord= $statsBorderBox.line11.yCord};
-lineSpins = @{text="0";xcord=96;ycord = $statsBorderBox.line12.ycord};
-lineWins =@{text="0";xcord=95;ycord = $statsBorderBox.line13.ycord};
-cherryWins=@{text="0";xcord=104;ycord = $statsBorderBox.line14.ycord};
-owlWins =@{text="0";xcord=100;ycord = 17};
-}
+
 
 $slotMachine =[PSCustomObject]@{
 line1= @{text = "                              .-------."; xcord= 0; ycord=1}
@@ -731,7 +791,40 @@ line24=@{text="                _|    \_______________________/    |_";xcord =0; 
 line25=@{text="               (_____________________________________)";xcord =0; ycord =25}
 }
 
+$configFile = $PSScriptRoot + "\config.json"
 
+
+
+
+function profileCheck {
+if(!(test-path $configFile)){
+  $stats =[PSCustomObject]@{
+  lineBank = @{Value=500; xcord= 90; ycord= $statsBorderBox.line11.yCord}
+  lineSpins = @{Value=0;xcord=96;ycord = $statsBorderBox.line12.ycord}
+  lineWins =@{Value=0;xcord=95;ycord = $statsBorderBox.line13.ycord}
+  cherryWins=@{Value=0;xcord=104;ycord = $statsBorderBox.line14.ycord}
+  owlWins =@{Value=0;xcord=100;ycord = $statsBorderBox.line15.ycord}
+  barWins =@{Value=0;xcord=102;ycord = $statsBorderBox.line16.ycord}
+  sevenWins =@{Value=0;xcord=102;ycord = $statsBorderBox.line17.ycord}
+  totalWinnings = @{Value=0;xcord=100;ycord = $statsBorderBox.line18.ycord}
+  }
+  $stats | ConvertTo-Json -Depth 2 | Out-File $configFile
+
+}
+else{
+  write-host "Config file exists."
+   $stats = Get-Content $configFile | ConvertFrom-Json
+
+}
+
+}
+
+profileCheck
+
+$stats = Get-Content $configFile | ConvertFrom-Json
+
+
+Clear-Host
 
 $slotMachine.PSOBject.Properties | ForEach-Object{
 $host.UI.RawUI.CursorPosition = @{ X = $_.Value.xcord; Y = $_.Value.ycord }
@@ -748,8 +841,7 @@ Write-Host $_.Value.text
 
 $stats.PSOBject.Properties | ForEach-Object{
 $host.UI.RawUI.CursorPosition = @{ X = $_.Value.xcord; Y = $_.Value.ycord }
-Write-Host $_.Value.text
-
+Write-Host $_.Value.value
 }
 
 
@@ -758,6 +850,7 @@ $host.UI.RawUI.CursorPosition = @{ X = $_.Value.xcord; Y = $_.Value.ycord }
 Write-Host $_.Value.text
 
 }
+
 
 
 Read-Host
