@@ -10,644 +10,93 @@ $OutputEncoding = [System.Text.Encoding]::UTF8
 
 
 
-
 function spin{
-
-$stats.lineBank.value -= 5
-$stats.lineSpins.value += 1
-
-$stats.PSOBject.Properties | ForEach-Object{
-$host.UI.RawUI.CursorPosition = @{ X = $_.Value.xcord; Y = $_.Value.ycord }
-Write-Host $_.Value.value
-}
-
-$stats | ConvertTo-Json -Depth 2 | Out-File $configFile
-
-$spinningSign.PSOBject.Properties | ForEach-Object{
-$host.UI.RawUI.CursorPosition = @{ X = $_.Value.xcord; Y = $_.Value.ycord }
-Write-Host $_.Value.text
-
-}
-
-$Host.UI.RawUI.CursorPosition = $slot1.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot1.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot1.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-Start-Sleep -milliseconds 115
-
-$Host.UI.RawUI.CursorPosition = $slot1.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot1.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot1.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-Start-Sleep -milliseconds 115
-
-$Host.UI.RawUI.CursorPosition = $slot1.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot1.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot1.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-Start-Sleep -milliseconds 115
-
-$Host.UI.RawUI.CursorPosition = $slot1.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot1.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot1.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-Start-Sleep -milliseconds 115
-
-$Host.UI.RawUI.CursorPosition = $slot1.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot1.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot1.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-Start-Sleep -milliseconds 115
-
-$Host.UI.RawUI.CursorPosition = $slot1.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot1.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot1.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-Start-Sleep -milliseconds 115
-
-###_____________RESULT ONE __________
-
-$result1 = Get-Random -Minimum 1 -Maximum 32
-###if cherry
-if ($result1 -le 16) {
-  $Host.UI.RawUI.CursorPosition = $slot1.cord1
-  Write-Host $cherrySymbol.line1.text -ForegroundColor $cherrySymbol.line1.color
-$Host.UI.RawUI.CursorPosition = $slot1.cord2
-  Write-Host $cherrySymbol.line2.text -ForegroundColor $cherrySymbol.line2.color
-$Host.UI.RawUI.CursorPosition = $slot1.cord3
-  Write-Host $cherrySymbol.line3.text -ForegroundColor $cherrySymbol.line3.color
-  $spot1 = "Cherry"
-} 
-
-###if owl
-if ($result1 -gt 16 -and $result1 -le 28) {
-  $Host.UI.RawUI.CursorPosition = $slot1.cord1
-  Write-Host $owlSymbol.line1.text -ForegroundColor $owlSymbol.line1.color
-$Host.UI.RawUI.CursorPosition = $slot1.cord2
-  Write-Host $owlSymbol.line2.text -ForegroundColor $owlSymbol.line2.color
-$Host.UI.RawUI.CursorPosition = $slot1.cord3
-  Write-Host $owlSymbol.line3.text -ForegroundColor $owlSymbol.line3.color
-  $spot1 = "Owl"
-}
-
-
-###if bar
-if ($result1 -gt 28 -and $result1 -le 31) {
-  $Host.UI.RawUI.CursorPosition = $slot1.cord1
-  Write-Host $barSymbol.line1.text -ForegroundColor $barSymbol.line1.color
-$Host.UI.RawUI.CursorPosition = $slot1.cord2
-  Write-Host $barSymbol.line2.text -ForegroundColor $barSymbol.line2.color
-$Host.UI.RawUI.CursorPosition = $slot1.cord3
-  Write-Host $barSymbol.line3.text -ForegroundColor $barSymbol.line3.color
-  $spot1 = "Bar"
-}
-
-
-###if seven
-if ($result1 -eq 32) {
-  $Host.UI.RawUI.CursorPosition = $slot1.cord1
-  Write-Host $sevenSymbol.line1.text -ForegroundColor $sevenSymbol.line1.color
-$Host.UI.RawUI.CursorPosition = $slot1.cord2
-  Write-Host $sevenSymbol.line2.text -ForegroundColor $sevenSymbol.line2.color
-$Host.UI.RawUI.CursorPosition = $slot1.cord3
-  Write-Host $sevenSymbol.line3.text -ForegroundColor $sevenSymbol.line3.color
-  $spot1 = "Seven"
-}
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-start-sleep -milliseconds 115
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-start-sleep -milliseconds 115
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-start-sleep -milliseconds 115
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-start-sleep -milliseconds 115
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-start-sleep -milliseconds 115
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot2.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-start-sleep -milliseconds 115
-
-###_____________RESULT TWO __________
-
-$result2 = Get-Random -Minimum 1 -Maximum 32
-###if cherry
-if ($result2 -le 16) {
-  $Host.UI.RawUI.CursorPosition = $slot2.cord1
-  Write-Host $cherrySymbol.line1.text -ForegroundColor $cherrySymbol.line1.color
-$Host.UI.RawUI.CursorPosition = $slot2.cord2
-  Write-Host $cherrySymbol.line2.text -ForegroundColor $cherrySymbol.line2.color
-$Host.UI.RawUI.CursorPosition = $slot2.cord3
-  Write-Host $cherrySymbol.line3.text -ForegroundColor $cherrySymbol.line3.color
-  $spot2 = "Cherry"
-} 
-
-###if owl
-if ($result2 -gt 16 -and $result2 -le 28) {
-  $Host.UI.RawUI.CursorPosition = $slot2.cord1
-  Write-Host $owlSymbol.line1.text -ForegroundColor $owlSymbol.line1.color
-$Host.UI.RawUI.CursorPosition = $slot2.cord2
-  Write-Host $owlSymbol.line2.text -ForegroundColor $owlSymbol.line2.color
-$Host.UI.RawUI.CursorPosition = $slot2.cord3
-  Write-Host $owlSymbol.line3.text -ForegroundColor $owlSymbol.line3.color
-  $spot2 = "Owl"
-}
-
-
-###if bar
-if ($result2 -gt 28 -and $result2 -le 31) {
-  $Host.UI.RawUI.CursorPosition = $slot2.cord1
-  Write-Host $barSymbol.line1.text -ForegroundColor $barSymbol.line1.color
-$Host.UI.RawUI.CursorPosition = $slot2.cord2
-  Write-Host $barSymbol.line2.text -ForegroundColor $barSymbol.line2.color
-$Host.UI.RawUI.CursorPosition = $slot2.cord3
-  Write-Host $barSymbol.line3.text -ForegroundColor $barSymbol.line3.color
-  $spot2 = "Bar"
-}
-
-
-###if seven
-if ($result2 -eq 32) {
-  $Host.UI.RawUI.CursorPosition = $slot2.cord1
-  Write-Host $sevenSymbol.line1.text -ForegroundColor $sevenSymbol.line1.color
-$Host.UI.RawUI.CursorPosition = $slot2.cord2
-  Write-Host $sevenSymbol.line2.text -ForegroundColor $sevenSymbol.line2.color
-$Host.UI.RawUI.CursorPosition = $slot2.cord3
-  Write-Host $sevenSymbol.line3.text -ForegroundColor $sevenSymbol.line3.color
-  $spot2 = "Seven"
-}
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-start-sleep -milliseconds 115
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-start-sleep -milliseconds 115
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-start-sleep -milliseconds 115
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-start-sleep -milliseconds 115
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-start-sleep -milliseconds 115
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord1
-$RandomSpin = Get-Random  -Maximum 4
-Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord2
-Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
-
-$Host.UI.RawUI.CursorPosition = $slot3.cord3
-Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
-
-start-sleep -milliseconds 115
-
-###_____________RESULT THREE __________
-
-$result3 = Get-Random -Minimum 1 -Maximum 32
-###if cherry
-if ($result3 -le 16) {
-  $Host.UI.RawUI.CursorPosition = $slot3.cord1
-  Write-Host $cherrySymbol.line1.text -ForegroundColor $cherrySymbol.line1.color
-$Host.UI.RawUI.CursorPosition = $slot3.cord2
-  Write-Host $cherrySymbol.line2.text -ForegroundColor $cherrySymbol.line2.color
-$Host.UI.RawUI.CursorPosition = $slot3.cord3
-  Write-Host $cherrySymbol.line3.text -ForegroundColor $cherrySymbol.line3.color
-  $spot3 = "Cherry"
-} 
-
-###if owl
-if ($result3 -gt 16 -and $result3 -le 28) {
-  $Host.UI.RawUI.CursorPosition = $slot3.cord1
-  Write-Host $owlSymbol.line1.text -ForegroundColor $owlSymbol.line1.color
-$Host.UI.RawUI.CursorPosition = $slot3.cord2
-  Write-Host $owlSymbol.line2.text -ForegroundColor $owlSymbol.line2.color
-$Host.UI.RawUI.CursorPosition = $slot3.cord3
-  Write-Host $owlSymbol.line3.text -ForegroundColor $owlSymbol.line3.color
-  $spot3 = "Owl"
-}
-
-
-###if bar
-if ($result3 -gt 28 -and $result3 -le 31) {
-  $Host.UI.RawUI.CursorPosition = $slot3.cord1
-  Write-Host $barSymbol.line1.text -ForegroundColor $barSymbol.line1.color
-$Host.UI.RawUI.CursorPosition = $slot3.cord2
-  Write-Host $barSymbol.line2.text -ForegroundColor $barSymbol.line2.color
-$Host.UI.RawUI.CursorPosition = $slot3.cord3
-  Write-Host $barSymbol.line3.text -ForegroundColor $barSymbol.line3.color
-  $spot3 = "Bar"
-}
-
-
-###if seven
-if ($result3 -eq 32) {
-  
-  $Host.UI.RawUI.CursorPosition = $slot3.cord1
-  Write-Host $sevenSymbol.line1.text -ForegroundColor $sevenSymbol.line1.color
-$Host.UI.RawUI.CursorPosition = $slot3.cord2
-  Write-Host $sevenSymbol.line2.text -ForegroundColor $sevenSymbol.line2.color
-$Host.UI.RawUI.CursorPosition = $slot3.cord3
-  Write-Host $sevenSymbol.line3.text -ForegroundColor $sevenSymbol.line3.color
-  $spot3 = "Seven"
-}
-
-if($spot1 -eq $spot2 -and $spot2 -eq $spot3 -and $spot1 -eq "Cherry") {
-  $stats = Get-Content $configFile | ConvertFrom-Json
-  $stats.lineBank.value += 25
-  $stats.totalWinnings.value += 25
-  $stats.lineWins.value += 1
-  $stats.cherryWins.value += 1
-
-  $stats | ConvertTo-Json -Depth 2 | Out-File $configFile
-
-  $spinningSign.PSOBject.Properties | ForEach-Object{
-    $host.UI.RawUI.CursorPosition = @{ X = $_.Value.xcord; Y = $_.Value.ycord}
+    $stats.lineBank.value -= 5
+    $stats.lineSpins.value += 1
+    $spinningSign.PSOBject.Properties | ForEach-Object{
+      $host.UI.RawUI.CursorPosition = @{ X = $_.Value.xcord; Y = $_.Value.ycord}
+      Write-Host $_.Value.text
+    }
+    $stats.PSOBject.Properties | ForEach-Object{
+    $host.UI.RawUI.CursorPosition = @{ X = $_.Value.xcord; Y = $_.Value.ycord }
+    Write-Host $_.Value.value
+    }
+    $stats | ConvertTo-Json -Depth 2 | Out-File $configFile
+
+
+
+
+   
+    while($spinCount -lt 18){
+    $spinCount = 0
+    if ($spinCount -lt 6) {
+    spinSlot -slotPosition $slot1
+    spinSlot -slotPosition $slot2
+    spinSlot -slotPosition $slot3
+    Start-Sleep -milliseconds 115
+    } 
+
+    if ($spinCount -gt 5 -and $spincount-lt 13){
+    $result1 = Get-Random -Minimum 1 -Maximum 32
+        switch($result1){
+        {$result1 -le 16} { $result1 = 0 }
+        {$result1 -ge 16 -and $result1 -le 28} { $result1 = 1 }
+        {$result1 -gt 28 -and $result1 -lt 32} { $result1 = 2 }
+        {$result1 -eq 32} { $result1 = 3 }
+      }
+    drawSlot -slotPosition $slot1 -symbol $symbols[$result1]
+    spinSlot -slotPosition $slot2
+    spinSlot -slotPosition $slot3
+    Start-Sleep -milliseconds 115
+    }
+
+    if ($spinCount -ge 12 -and $spincount -lt 18){
+    $result2 = Get-Random -Minimum 1 -Maximum 32
+        switch($result2){
+        {$result2 -le 16} { $result2 = 0 }
+        {$result2 -ge 16 -and $result2 -le 28} { $result2 = 1 }
+        {$result2 -gt 28 -and $result2 -lt 32} { $result2 = 2 }
+        {$result2 -eq 32} { $result2 = 3 }
+      }
+    drawSlot -slotPosition $slot2 -symbol $symbols[$result2]
+    spinSlot -slotPosition $slot3
+    Start-Sleep -milliseconds 115
+    }
+    if ($spinCount -eq 18){
+          $result3 = Get-Random -Minimum 1 -Maximum 32
+
+
+    switch($result3){
+        {$result3 -le 16} { $result3 = 0 }
+        {$result3 -ge 16 -and $result3 -le 28} { $result3 = 1 }
+        {$result3 -gt 28 -and $result3 -lt 32} { $result3 = 2 }
+        {$result3 -eq 32} { $result3 = 3 }
+      }
+   
+    drawSlot -slotPosition $slot3 -symbol $symbols[$result3]
+    Start-Sleep -milliseconds 115
+
+      if ($result1 -eq $result2 -and $result2 -eq $result3) {
+        switch($result1){
+          0 { $stats.lineBank.value += $cherrySymbol.payout; $stats.cherryWins.value += 1 }
+          1 { $stats.lineBank.value += $owlSymbol.payout; $stats.owlWins.value += 1 }
+          2 { $stats.lineBank.value += $barSymbol.payout; $stats.barWins.value += 1 }
+          3 { $stats.lineBank.value += $sevenSymbol.payout; $stats.sevenWins.value += 1 }
+        }
+        $stats.lineWins.value += 1
+    }
+
+    $spinCount++
+    
+  }
+    $spinAgainSign.PSOBject.Properties | ForEach-Object{
+    $host.UI.RawUI.CursorPosition = @{ X = $_.Value.xcord; Y = $_.Value.ycord }
     Write-Host $_.Value.text
     }
-}
 
-if($spot1 -eq $spot2 -and $spot2 -eq $spot3 -and $spot1 -eq "Owl") {
-  $stats = Get-Content $configFile | ConvertFrom-Json
-  $stats.lineBank.value += 125
-  $stats.totalWinnings.value += 125
-  $stats.lineWins.value += 1
-  $stats.owlWins.value += 1
-
-  $stats | ConvertTo-Json -Depth 2 | Out-File $configFile
-
-  $spinningSign.PSOBject.Properties | ForEach-Object{
-    $host.UI.RawUI.CursorPosition = @{ X = $_.Value.xcord; Y = $_.Value.ycord}
-    Write-Host $_.Value.text
-    }
-}
-
-if($spot1 -eq $spot2 -and $spot2 -eq $spot3 -and $spot1 -eq "bars") {
-  $stats = Get-Content $configFile | ConvertFrom-Json
-  $stats.lineBank.value += 10000
-  $stats.totalWinnings.value += 10000
-  $stats.lineWins.value += 1
-  $stats.barWins.value += 1
-
-  $stats | ConvertTo-Json -Depth 2 | Out-File $configFile
-
-  $spinningSign.PSOBject.Properties | ForEach-Object{
-    $host.UI.RawUI.CursorPosition = @{ X = $_.Value.xcord; Y = $_.Value.ycord}
-    Write-Host $_.Value.text
-    }
-}
-
-if($spot1 -eq $spot2 -and $spot2 -eq $spot3 -and $spot1 -eq "Seven") {
-  $stats = Get-Content $configFile | ConvertFrom-Json
-  $stats.lineBank.value += 1000000
-  $stats.totalWinnings.value += 1000000
-  $stats.lineWins.value += 1
-  $stats.sevenWins.value += 1
-
-  $stats | ConvertTo-Json -Depth 2 | Out-File $configFile
-
-  $spinningSign.PSOBject.Properties | ForEach-Object{
-    $host.UI.RawUI.CursorPosition = @{ X = $_.Value.xcord; Y = $_.Value.ycord}
-    Write-Host $_.Value.text
-    }
-}
-
-
-$spinSign.PSOBject.Properties | ForEach-Object{
-$host.UI.RawUI.CursorPosition = @{ X = $_.Value.xcord; Y = $_.Value.ycord }
-Write-Host $_.Value.text
-
-}
-
-$spinAgainSign.PSOBject.Properties | ForEach-Object{
-$host.UI.RawUI.CursorPosition = @{ X = $_.Value.xcord; Y = $_.Value.ycord }
-Write-Host $_.Value.text
-
-}
-Read-Host
-spin
-
+    Read-Host
+    spin
+  }
 
 
 }
@@ -655,33 +104,36 @@ spin
 
 
 $sevenSymbol = [PSCustomObject]@{
-
+name = "Seven"
 line1 = @{text = "*****"; color = "Green"}
 line2 = @{text = "  ** "; color = "Green"}
 line3 = @{text = " **  "; color = "Green"}
-
+payout = 1000000
 }
 
 $barSymbol = [PSCustomObject]@{
-
+name = "Bar"
 line1 = @{text = " [ ] "; color = "DarkYellow"}
 line2 = @{text = " | | "; color = "DarkYellow"}
 line3 = @{text = " [ ] "; color = "DarkYellow"}
+payout = 100000
 }
 
 
 $owlSymbol = [PSCustomObject]@{
-
+name = "Owl"
 line1 = @{text = " ^-^ "; color = "Magenta"}
 line2 = @{text = " ( ) "; color = "Magenta"}
 line3 = @{text = " > < "; color = "Yellow"}
+payout = 50
 }
 
 $cherrySymbol = [PSCustomObject]@{
-
+name = "Cherry"
 line1 = @{text = "  ,  "; color = "Green"}
 line2 = @{text = " (_) "; color = "Red"}
 line3 = @{text = "     "; color = "Red"}
+payout = 25
 }
 
 $emptySymbol = [PSCustomObject]@{
@@ -851,7 +303,34 @@ Write-Host $_.Value.text
 
 }
 
+function spinSlot{
+  Param( [PSCustomObject]$slotPosition)
 
+
+
+$Host.UI.RawUI.CursorPosition = $slotPosition.cord1
+$RandomSpin = Get-Random  -Maximum 4
+Write-Host $symbols[$RandomSpin].line1.text -ForegroundColor $symbols[$RandomSpin].line1.color
+
+$Host.UI.RawUI.CursorPosition = $slotPosition.cord2
+Write-Host $symbols[$RandomSpin].line2.text -ForegroundColor $symbols[$RandomSpin].line2.color
+
+$Host.UI.RawUI.CursorPosition = $slotPosition.cord3
+Write-Host $symbols[$RandomSpin].line3.text -ForegroundColor $symbols[$RandomSpin].line3.color
+}
+
+
+function drawSlot{
+  Param([PSCustomObject]$slotPosition,
+  [PSCustomObject]$symbol)
+
+$Host.UI.RawUI.CursorPosition = $slotPosition.cord1
+Write-Host $symbol.line1.text -ForegroundColor $symbol.line1.color
+$Host.UI.RawUI.CursorPosition = $slotPosition.cord2
+Write-Host $symbol.line2.text -ForegroundColor $symbol.line2.color
+$Host.UI.RawUI.CursorPosition = $slotPosition.cord3
+Write-Host $symbol.line3.text -ForegroundColor $symbol.line3.color
+}
 
 Read-Host
 spin
