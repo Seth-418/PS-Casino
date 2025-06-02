@@ -603,7 +603,7 @@ if($spot1 -eq $spot2 -and $spot2 -eq $spot3 -and $spot1 -eq "Owl") {
     }
 }
 
-if($spot1 -eq $spot2 -and $spot2 -eq $spot3 -and $spot1 -eq "bars") {
+if($spot1 -eq $spot2 -and $spot2 -eq $spot3 -and $spot1 -eq "Bar") {
   $stats = Get-Content $configFile | ConvertFrom-Json
   $stats.lineBank.value += 10000
   $stats.totalWinnings.value += 10000
